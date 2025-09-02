@@ -16,7 +16,7 @@
   }
 }
 
-.visually-hidden {
+.visible-mobile  {
   @include mobile-above {
     display: none !important;
   }

@@ -1,14 +1,24 @@
-@use "helpers" as *;
+@use 'helpers' as *;
+
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
 
 body {
-  @include fluid-text(18, 24);
+  @include fluid-text(18, 14);
 
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
-
   letter-spacing: -0.03em;
-
   color: var(--color-gray-50);
   background-color: var(--color-dark);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1, .h1,
@@ -62,7 +72,7 @@ h6, .h6 {
 }
 
 p {
-  --paragraphMarginBottom: #{rem(24)};
+  --paragraphMarginBottom: #{to-rem(24)};
 }
 
 a,
@@ -88,8 +98,8 @@ a {
 }
 
 :focus-visible {
-  outline: rem(2) dashed var(--color-light);
-  outline-offset: rem(4);
+  outline: to-rem(2) dashed var(--color-light);
+  outline-offset: to-rem(4);
   transition-duration: 0s !important;
 }
 
@@ -100,7 +110,7 @@ button {
 
     &::before {
       @include abs-center;
-      @include square(rem(44));
+      @include square(to-rem(44));
 
       content: '';
     }
