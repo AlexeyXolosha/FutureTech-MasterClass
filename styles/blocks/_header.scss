@@ -1,7 +1,23 @@
 @use "../helpers" as *;
 
 .header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-rang: to-rem(100) to-rem(200);
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 1rem 0 var(--color-dark-40);
+    }
+  }
+
   &__promo {
+    background-color: var(--color-dark);
     padding-block: to-rem(20);
     text-align: center;
     border-bottom: var(--border);
@@ -66,7 +82,7 @@
       @include laptop {
         gap: to-rem(6);
       }
-      
+
       @include mobile {
         flex-direction: column;
         gap: 1rem;
